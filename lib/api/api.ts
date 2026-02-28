@@ -1,14 +1,8 @@
 import axios from "axios";
 
-const publicUrl =
-  process.env.NEXT_PUBLIC_API_URL ||
-  process.env.NEXT_PUBLIC_NOTEHUB_API_URL ||
-  "";
-
-
-const baseURL = `${publicUrl.replace(/\/$/, "")}/api`;
+const baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
 export const api = axios.create({
-  baseURL,
+    baseURL,
   withCredentials: true,
-});
+})
