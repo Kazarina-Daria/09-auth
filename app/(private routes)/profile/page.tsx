@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+
+
 import css from "./ProfilePage.module.css";
 import { Metadata } from "next";
 import Link from 'next/link';
@@ -7,17 +10,6 @@ import Image from "next/image";
 export const metadata : Metadata = {
     title:"Profile Page",
     description:"User profile page with personal information ",
-    openGraph:{
-        title :" Profile page",
-        description:" User profile page with personal information",
-        url:"https://09-auth-ten-dusky.versel.app/profile",
-        images:[
-            {
-                url:"https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
-                alt:"profile page image"
-            }
-        ]
-    }
 }
 
 export default async function ProfilePage(){
