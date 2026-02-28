@@ -4,14 +4,17 @@ import { useState } from "react";
 import css from "./SignInPage.module.css";
 import { useRouter } from "next/navigation";
 import { login, type RegisterRequest } from "@/lib/api/clientApi";
+import { useAuthStore } from "@/lib/store/authStore";
 
 export default function SignIn() {
   const router = useRouter();
   const [error, setError] = useState("");
+  const setUser = useAuthStore((state) => state.setUser);
   const handleSubmit = async (formData: FormData) => {
     try {
       const formValues = Object.fromEntries(formData) as RegisterRequest;
       const res = await login(formValues);
+      setUser(res);
       if (res) {
         router.push("/profile");
       } else {

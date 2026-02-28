@@ -22,17 +22,17 @@ await api.post("/auth/logout");
 }
 
 export const checkSession = async () : Promise<User | null>=> {
-    const res = await api.post("/auth/check-session");
+    const res = await api.get("/auth/auth/session");
     return res.data  || null;
 }
 
 export const getMe = async () : Promise<User>=> {
-    const res = await api.post("/auth/me");
+    const res = await api.get("/users/me");
     return res.data;
 }
 
 export const updateMe = async ( payload :{username : string}) : Promise<User>=> {
-    const res = await api.patch("/auth/me", payload);
+    const res = await api.patch("/users/me", payload);
     return res.data;
 }
 

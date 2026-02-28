@@ -25,8 +25,8 @@ export default async function ProfilePage(){
 	   </div>
      <div className={css.avatarWrapper}>
       <Image
-        src="Avatar"
-        alt="User Avatar"
+        src={user.avatar}
+        alt={user.avatar}
         width={120}
         height={120}
         className={css.avatar}

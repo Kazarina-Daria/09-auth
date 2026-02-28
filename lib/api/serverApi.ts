@@ -4,8 +4,6 @@ import { headers } from 'next/headers';
 import {type User} from "../../types/user";
 import {type Note, FetchNotesResponse, type NoteTag}  from "../../types/note";
 import { api } from './api';
-import { parse } from 'cookie';
-import { cookies } from 'next/headers';
 import { AxiosResponse } from 'axios';
 
 
@@ -50,7 +48,8 @@ export const checkSession = async (options?: ServerRequestOptions) : Promise<Axi
     
 }
 
-export const getMe = async () : Promise<User>=> {
-    const res = await api.post("/auth/me");
+export const getMe = async (options?: ServerRequestOptions) : Promise<User>=> {
+      const cookie = await getAuthHeaders(options);
+    const res = await api.post<User>("/users/me", { headers: { cookie } });
     return res.data;
 }

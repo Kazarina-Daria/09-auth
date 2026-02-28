@@ -10,6 +10,7 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import {useRouter } from "next/navigation";
 import { NoteTag } from "@/types/note";
+import Link from 'next/link';
 
 
 interface NotesClientProps {
@@ -37,9 +38,9 @@ export default function NotesClient({tag}: NotesClientProps) {
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
-        <button className={css.button} onClick={() => router.push("/notes/action/create")}>
+        <Link href ="/notes/action/create" className={css.button}>
           Create note +
-        </button>
+        </Link>
         <SearchBox
           value={searchInputValue}
           onChange={(value) => {
