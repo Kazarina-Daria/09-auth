@@ -50,6 +50,6 @@ export const checkSession = async (options?: ServerRequestOptions) : Promise<Axi
 
 export const getMe = async (options?: ServerRequestOptions) : Promise<User>=> {
       const cookie = await getAuthHeaders(options);
-    const res = await api.post<User>("/users/me", { headers: { cookie } });
+    const res = await api.get<User>("/users/me", { headers: { cookie } });
     return res.data;
 }
