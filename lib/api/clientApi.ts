@@ -22,7 +22,7 @@ await api.post("/auth/logout");
 }
 
 export const checkSession = async () : Promise<User | null>=> {
-    const res = await api.get("/auth/auth/session");
+    const res = await api.get("/auth/session");
     return res.data  || null;
 }
 
@@ -36,12 +36,12 @@ export const updateMe = async ( payload :{username : string}) : Promise<User>=> 
     return res.data;
 }
 
-export const fetchNotes= async (onQuery : string, page: number, perPage: number, tag?: NoteTag | "all") : Promise<FetchNotesResponse>=> {
+export const fetchNotes= async (search : string, page: number, perPage?: number, tag?: NoteTag | "all") : Promise<FetchNotesResponse>=> {
     const res = await api.get<FetchNotesResponse>("/notes", {
         params: {
             page,
             perPage,
-  ...(onQuery ? { search: onQuery } : {}),
+  ...(search? { search: search } : {}),
       ...(tag ? tag !== "all" ? { tag } : {} : {}),
         },
     });
@@ -55,19 +55,17 @@ content :string;
    tag: NoteTag;
 }
 
-export const createNote = async (playload : CreateNote) :Promise<Note> => {
-    const res = await api.post<Note>("/notes", playload);
+export const createNote = async (payload : CreateNote) :Promise<Note> => {
+    const res = await api.post<Note>("/notes", payload);
     return res.data;
 }
 
 export const deleteNote = async (id : Note["id"]): Promise<Note> =>{
-    const res = await api.delete<Note>(`/notes/${id}`, {
-    });
+    const res = await api.delete<Note>(`/notes/${id}`);
     return res.data;
 }
 
 export const fetchNoteById = async (id:Note["id"]):Promise<Note> => {
-    const res = await api.get<Note>(`/notes/${id}`, {
-    });
+    const res = await api.get<Note>(`/notes/${id}`);
     return res.data;
 }
