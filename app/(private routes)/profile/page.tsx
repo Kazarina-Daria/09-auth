@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import Link from 'next/link';
 import {getMe} from "@/lib/api/serverApi";
 import Image from "next/image";
-import { useState } from "react";
 
 export const metadata : Metadata = {
     title:"Profile Page",
