@@ -15,6 +15,18 @@ export default function Header (){
       <li>
         <Link href="/notes/filter/all">Notes</Link>
       </li>
+      <li>
+        <Link href="/login">Login</Link>
+      </li>
+      <li>
+        <Link href="/logout">Logout</Link>
+      </li>
+      <li>
+        <Link href="/signup">Sign up</Link>
+      </li>
+       <li>
+        <Link href="/signup">Register</Link>
+      </li>
     </ul>
   </nav>
 </header>

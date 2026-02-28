@@ -9,7 +9,7 @@ import NoteList from "../../../../components/NoteList/NoteList";
 import SearchBox from "../../../../components/SearchBox/SearchBox";
 import Pagination from "../../../../components/Pagination/Pagination";
 import {useRouter } from "next/navigation";
-import type {NoteTag} from "@/lib/api";
+import type {NoteTag} from "@/lib/api/clientApi";
 
 
 interface NotesClientProps {
